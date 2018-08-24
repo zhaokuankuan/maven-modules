@@ -1,0 +1,14 @@
+package com.kk.mavenmodulescontroller;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@MapperScan("com.kk")
+public class MavenModulesControllerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MavenModulesControllerApplication.class, args);
+	}
+}

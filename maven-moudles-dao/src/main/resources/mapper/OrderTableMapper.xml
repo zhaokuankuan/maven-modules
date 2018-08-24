@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kk.OrderTableDao">
+
+    <resultMap id="OrderTable" type="com.kk.OrderTable" >
+        <result column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="username" property="username" />
+        <result column="addtime" property="addtime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `user_id`,
+        `username`,
+        `addtime`
+    </sql>
+
+    <insert id="insert" parameterType="java.util.Map" >
+        INSERT INTO order_table (
+        `id`,
+        `user_id`,
+        `username`,
+        `addtime`
+        )
+        VALUES(
+        #{orderTable.id},
+        #{orderTable.userId},
+        #{orderTable.username},
+        #{orderTable.addtime}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        DELETE FROM order_table
+        WHERE `id` = #{id}
+    </delete>
+
+    <update id="update" parameterType="java.util.Map" >
+        UPDATE order_table
+        <set>
+            <if test="orderTable.userId != null and orderTable.userId != '' " >
+                user_id = #{orderTable.userId},
+            </if>
+        </set>
+        <set>
+            <if test="orderTable.username != null and orderTable.username != '' " >
+                username = #{orderTable.username},
+            </if>
+        </set>
+        <set>
+            <if test="orderTable.addtime != null and orderTable.addtime != '' " >
+                addtime = #{orderTable.addtime},
+            </if>
+        </set>
+        WHERE `id` = #{orderTable.id}
+    </update>
+
+
+    <select id="getAll" resultMap="OrderTable">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM order_table
+    </select>
+
+    <select id="load" parameterType="java.util.Map" resultMap="OrderTable">
+        SELECT <include refid="Base_Column_List" />
+        FROM order_table
+        WHERE `id` = #{id}
+    </select>
+
+    <select id="pageList" parameterType="java.util.Map" resultMap="OrderTable">
+        SELECT <include refid="Base_Column_List" />
+        FROM order_table
+        LIMIT #{offset}, #{pagesize}
+    </select>
+
+    <select id="pageListCount" parameterType="java.util.Map" resultType="int">
+        SELECT count(1)
+        FROM order_table
+    </select>
+
+</mapper>
