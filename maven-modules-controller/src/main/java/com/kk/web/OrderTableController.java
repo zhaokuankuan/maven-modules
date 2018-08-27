@@ -6,10 +6,14 @@ import com.kk.maven.modules.service.OrderTableService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -27,8 +31,8 @@ public class OrderTableController {
 
 
     @RequestMapping(value = "/getHello",method = RequestMethod.GET)
-    public String getHello(){
-        return  "hello";
+    public String getHello(String name){
+        return  "hello! " + name;
     }
 
     /**
@@ -45,10 +49,18 @@ public class OrderTableController {
 
     /**
      * 新增
+     * 测试参数校验的测试
      */
     @ApiOperation(value = "insert",notes = "新增")
     @RequestMapping(value="/orderTable/insert",method = {RequestMethod.GET,RequestMethod.POST})
-    public ReturnModel insert(OrderTable orderTable){
+    public ReturnModel insert(@Valid OrderTable orderTable, BindingResult result){
+        System.out.println("orderTable:=======>"+orderTable);
+        if(result.hasErrors()){
+            List<ObjectError> list = result.getAllErrors();
+            for (ObjectError objectError: list){
+                System.out.print(objectError.getCode()+"====>"+objectError.getDefaultMessage());
+            }
+        }
         return orderTableService.insert(orderTable);
     }
 

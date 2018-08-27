@@ -1,4 +1,5 @@
 package com.kk.maven.modules.domain;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 /**
  * 订单信息
@@ -12,6 +13,7 @@ public class OrderTable implements Serializable {
     /**
      * 主键
      */
+    @NotEmpty(message = "主键不能为空！")
     private String id;
 
     /**
@@ -22,6 +24,7 @@ public class OrderTable implements Serializable {
     /**
      * 用户名
      */
+    @NotEmpty(message = "用户名不能为空！")
     private String username;
 
     /**
