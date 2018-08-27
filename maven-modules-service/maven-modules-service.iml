@@ -26,8 +26,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="maven-moudles-dao" />
-    <orderEntry type="module" module-name="maven-modules-domain" />
     <orderEntry type="module" module-name="maven-modules-common" />
+    <orderEntry type="module" module-name="maven-modules-domain" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.0.4.RELEASE" level="project" />

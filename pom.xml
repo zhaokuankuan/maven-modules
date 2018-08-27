@@ -79,6 +79,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>com.kk.mavenmodulescontroller.MavenModulesControllerApplication</mainClass>
+                    <layout>ZIP</layout>
                     <fork>
                         true
                     </fork>
