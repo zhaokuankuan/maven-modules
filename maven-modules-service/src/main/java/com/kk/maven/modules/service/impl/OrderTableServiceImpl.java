@@ -1,9 +1,9 @@
-package com.kk.impl;
+package com.kk.maven.modules.service.impl;
 
-import com.kk.OrderTable;
-import com.kk.OrderTableDao;
-import com.kk.OrderTableService;
-import com.kk.ReturnModel;
+import com.kk.maven.modules.dao.OrderTableDao;
+import com.kk.maven.modules.common.ReturnModel;
+import com.kk.maven.modules.domain.OrderTable;
+import com.kk.maven.modules.service.OrderTableService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
