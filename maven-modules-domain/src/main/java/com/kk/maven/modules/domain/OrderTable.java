@@ -1,4 +1,4 @@
-package com.kk;
+package com.kk.maven.modules.domain;
 import java.io.Serializable;
 /**
  * 订单信息

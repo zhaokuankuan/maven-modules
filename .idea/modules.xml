@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/maven-modules-controller/maven-modules-controller.iml" filepath="$PROJECT_DIR$/maven-modules-controller/maven-modules-controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/maven-modules-domain/maven-modules-domain.iml" filepath="$PROJECT_DIR$/maven-modules-domain/maven-modules-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/maven-modules-service/maven-modules-service.iml" filepath="$PROJECT_DIR$/maven-modules-service/maven-modules-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven-moudles-config/maven-moudles-config.iml" filepath="$PROJECT_DIR$/maven-moudles-config/maven-moudles-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/maven-moudles-dao/maven-moudles-dao.iml" filepath="$PROJECT_DIR$/maven-moudles-dao/maven-moudles-dao.iml" />
     </modules>
   </component>

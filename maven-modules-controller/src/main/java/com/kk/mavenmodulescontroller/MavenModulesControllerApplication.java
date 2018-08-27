@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.kk")
-@ComponentScan("com.kk.*")
+@MapperScan("com.kk.maven.modules.dao")
+@ComponentScan(basePackages = {"com.kk.*","com.kk.maven.modules.config"})
 public class MavenModulesControllerApplication {
 
 	public static void main(String[] args) {

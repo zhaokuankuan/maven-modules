@@ -12,8 +12,8 @@ spring:
 
 #配置 mybatis-config.xml 路径，mybatis-config.xml 中配置 MyBatis 基础属性
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.kk
+  mapper-locations: classpath:sqlmap/*Mapper.xml
+  type-aliases-package: com.kk.maven.modules.domain
 #  #配置sql的打印 //包路径为mapper文件包路径
   configuration:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

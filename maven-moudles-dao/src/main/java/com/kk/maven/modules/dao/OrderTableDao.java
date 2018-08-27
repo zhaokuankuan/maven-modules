@@ -1,5 +1,6 @@
-package com.kk;
+package com.kk.maven.modules.dao;
 
+import com.kk.maven.modules.domain.OrderTable;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.kk;
+package com.kk.maven.modules.common;
 
 import java.io.Serializable;
 import java.util.HashMap;

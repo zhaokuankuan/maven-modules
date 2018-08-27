@@ -12,6 +12,7 @@
         <module name="maven-modules-domain" />
         <module name="maven-modules-service" />
         <module name="maven-modules-web" />
+        <module name="maven-moudles-config" />
         <module name="maven-moudles-dao" />
       </profile>
     </annotationProcessing>
@@ -24,6 +25,7 @@
       <module name="maven-modules-domain" target="1.8" />
       <module name="maven-modules-service" target="1.8" />
       <module name="maven-modules-web" target="1.8" />
+      <module name="maven-moudles-config" target="1.8" />
       <module name="maven-moudles-dao" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,16 +1,15 @@
 package com.kk.web;
 
-import com.kk.OrderTable;
-import com.kk.OrderTableService;
-import com.kk.ReturnModel;
+import com.kk.maven.modules.common.ReturnModel;
+import com.kk.maven.modules.domain.OrderTable;
+import com.kk.maven.modules.service.OrderTableService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ import java.util.Map;
 @RestController
 public class OrderTableController {
 
-    @Resource
+    @Autowired
     private OrderTableService orderTableService;
 
 
