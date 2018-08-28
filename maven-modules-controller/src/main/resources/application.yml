@@ -5,24 +5,22 @@ server:
 
 spring:
   datasource:
-    jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    driverClassName: com.mysql.jdbc.Driver
-    username: root
-    password: root
-    druid:
-        #初始化数据源  最小的连接数  最大的连接数
-          initial-size: 3
-          min-idle: 3
-          max-active: 10
-        #链接的最大等待时间
-          max-wait: 2000
-        #管理的账号和密码
-          username: zhaokk
-          password: zhaokk
-          filter:
-            stat:
-              slow-sql-millis: 2000
-              log-slow-sql: true
+       jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+       driver-class-name: com.mysql.jdbc.Driver
+       username: root
+       password: root
+       druid:
+        initial-size: 3
+        min-idle: 3
+        max-active: 10
+        max-wait: 2000
+        username: zhaokk
+        password: zhaokk
+        filter:
+          stat:
+            slow-sql-millis: 2000
+            log-slow-sql: true
+
 
 #配置 mybatis-config.xml 路径，mybatis-config.xml 中配置 MyBatis 基础属性
 mybatis:

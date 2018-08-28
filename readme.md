@@ -6,4 +6,4 @@
 3.springboo整合Swagger
 4.加入Filter和Mockmvc测试
 5.增加了Vaild和BingResult参数校验
-6.Springboot整合了Druid数据源
+6.Springboot整合了Druid数据源  访问 http://localhost:8888/maven-modules/druid 可以查看对应的数据库的监控
