@@ -12,7 +12,7 @@ public class MyFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.print("过滤器加载成功！=======================》");
+        System.out.println("过滤器加载成功！=======================》");
     }
 
     /** 过滤器真正工作的方法
@@ -26,7 +26,7 @@ public class MyFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String url = request.getRequestURI();
-        System.out.print("当前的访问的接口为："+ url);
+        System.out.println("当前的访问的接口为："+ url);
         //将请求转发给下一个过滤链，如果没有filter那就是你请求的资源
         filterChain.doFilter(servletRequest,servletResponse);
     }
