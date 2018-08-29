@@ -5,7 +5,6 @@ import com.kk.maven.modules.domain.OrderTable;
 import com.kk.maven.modules.service.OrderTableService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * 订单信息
@@ -26,8 +27,9 @@ import java.util.Map;
 @RestController
 public class OrderTableController {
 
-    @Autowired
+    @Resource
     private OrderTableService orderTableService;
+
 
 
     @RequestMapping(value = "/getHello",method = RequestMethod.GET)

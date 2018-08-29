@@ -1,8 +1,10 @@
+#############################################工程的配置信息##############################################
 server:
   port: 8888
   servlet:
     context-path: /maven-modules
 
+#############################################druid的配置信息##############################################
 spring:
   datasource:
        jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -21,11 +23,23 @@ spring:
             slow-sql-millis: 2000
             log-slow-sql: true
 
-
+#############################################redis的配置信息##############################################
+  redis:
+#redis的地址
+    host: 127.0.0.1
+#redis的端口
+    port: 6379
+#redis的数据库索引
+    database: 0
+#服务器的链接密码(默认为空)
+    password: 123456
+#链接超时时间
+    timeout: 10000
+#############################################mybatis的配置信息##############################################
 #配置 mybatis-config.xml 路径，mybatis-config.xml 中配置 MyBatis 基础属性
 mybatis:
   mapper-locations: classpath:sqlmap/*Mapper.xml
   type-aliases-package: com.kk.maven.modules.domain
-#  #配置sql的打印 //包路径为mapper文件包路径
+#配置sql的打印 //包路径为mapper文件包路径
   configuration:
       log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
