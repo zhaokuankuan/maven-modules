@@ -1,9 +1,11 @@
-package com.kk.maven.modules.service.impl;
+package com.kk.maven.modules.service.impl.user;
 
-import com.kk.maven.modules.dao.orderTable.OrderTableDao;
+import com.kk.maven.modules.common.DateUtils;
 import com.kk.maven.modules.common.ReturnModel;
-import com.kk.maven.modules.domain.OrderTable;
-import com.kk.maven.modules.service.OrderTableService;
+import com.kk.maven.modules.common.StringUtil;
+import com.kk.maven.modules.dao.user.UserDao;
+import com.kk.maven.modules.domain.user.User;
+import com.kk.maven.modules.service.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,32 +13,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
- * 订单信息
+ * 用户信息
  * Created  by Mr.kk
- * DateTime on 2018-08-24 14:14:08
+ * DateTime on 2018-09-03 10:19:20
  */
 @Service
-public class OrderTableServiceImpl implements OrderTableService {
+public class UserServiceImpl implements UserService {
 
     @Resource
-    private OrderTableDao orderTableDao;
+    private UserDao userDao;
 
     /**
      * 新增或修改
      */
     @Override
-    public ReturnModel insertOrUpdate(OrderTable orderTable) {
+    public ReturnModel insertOrUpdate(User user) {
         ReturnModel result = new ReturnModel();
-        if (orderTable == null) {
+        if (user == null) {
             return result;
         }
-        if(null != orderTable.getId() && !"".equals(orderTable.getId())){
+        if(null != user.getId() && !"".equals(user.getId())){
             //修改
-            result =  update(orderTable);
+            result =  update(user);
         }else{ //新增
-            result = insert(orderTable);
+            result = insert(user);
         }
         return result;
     }
@@ -45,13 +46,15 @@ public class OrderTableServiceImpl implements OrderTableService {
      * 新增
      */
     @Override
-    public ReturnModel insert(OrderTable orderTable) {
+    public ReturnModel insert(User user) {
         ReturnModel result = new ReturnModel();
-        if (orderTable == null) {
+        if (user == null) {
             result.addDefaultModel("404","必要参数缺失");
             return result;
         }
-        orderTableDao.insert(orderTable);
+        user.setId(StringUtil.createUUID());
+        user.setCreateTime(DateUtils.getTs());
+        userDao.insert(user);
         result.setSuccess(true);
         return result;
     }
@@ -66,7 +69,7 @@ public class OrderTableServiceImpl implements OrderTableService {
             result.setMsg("id不能为空！");
             return result;
         }
-        int ret = orderTableDao.delete(id);
+        int ret = userDao.delete(id);
         if(ret > 0){
             result.setSuccess(true);
             return  result;
@@ -79,9 +82,10 @@ public class OrderTableServiceImpl implements OrderTableService {
      * 修改
      */
     @Override
-    public ReturnModel update(OrderTable orderTable) {
+    public ReturnModel update(User user) {
         ReturnModel result = new ReturnModel();
-        int ret = orderTableDao.update(orderTable);
+        user.setModifyTime(DateUtils.getTs());
+        int ret = userDao.update(user);
         if(ret > 0){
             result.setSuccess(true);
             return  result;
@@ -100,8 +104,8 @@ public class OrderTableServiceImpl implements OrderTableService {
             result.setMsg("id不能为空！");
             return result;
         }
-        OrderTable orderTable = orderTableDao.load(id);
-        result.addDefaultModel("value",orderTable);
+        User user = userDao.load(id);
+        result.addDefaultModel("value",user);
         result.setSuccess(true);
         return result;
     }
@@ -109,8 +113,8 @@ public class OrderTableServiceImpl implements OrderTableService {
     /**
      * 全部查询
      */
-    public List<OrderTable> getAll(){
-        List<OrderTable> list = orderTableDao.getAll();
+    public List<User> getAll(){
+        List<User> list = userDao.getAll();
         return list;
     };
 
@@ -119,8 +123,8 @@ public class OrderTableServiceImpl implements OrderTableService {
      */
     @Override
     public Map<String,Object> pageList(int offset, int pagesize) {
-        List<OrderTable> pageList = orderTableDao.pageList(offset, pagesize);
-        int totalCount = orderTableDao.pageListCount(offset, pagesize);
+        List<User> pageList = userDao.pageList(offset, pagesize);
+        int totalCount = userDao.pageListCount(offset, pagesize);
         // 分页查询的数据的返回
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("pageList", pageList);

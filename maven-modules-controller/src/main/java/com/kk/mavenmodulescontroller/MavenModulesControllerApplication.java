@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@MapperScan("com.kk.maven.modules.dao")
+@MapperScan("com.kk.maven.modules.dao.*")
 @ComponentScan(basePackages = {"com.kk.*","com.kk.maven.modules.config","com.kk.maven.modules.common"})
 public class MavenModulesControllerApplication {
 

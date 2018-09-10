@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kk.maven.modules.dao.user.UserDao">
+
+    <resultMap id="User" type="com.kk.maven.modules.domain.user.User" >
+        <result column="id" property="id" />
+        <result column="user_code" property="userCode" />
+        <result column="user_name" property="userName" />
+        <result column="telephone" property="telephone" />
+        <result column="password" property="password" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `user_code`,
+        `user_name`,
+        `telephone`,
+        `password`,
+        `create_time`,
+        `modify_time`
+    </sql>
+
+    <insert id="insert" parameterType="java.util.Map" >
+        INSERT INTO user (
+        `id`,
+        `user_code`,
+        `user_name`,
+        `telephone`,
+        `password`,
+        `create_time`,
+        `modify_time`
+        )
+        VALUES(
+        #{user.id},
+        #{user.userCode},
+        #{user.userName},
+        #{user.telephone},
+        #{user.password},
+        #{user.createTime},
+        #{user.modifyTime}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        DELETE FROM user
+        WHERE `id` = #{id}
+    </delete>
+
+    <update id="update" parameterType="java.util.Map" >
+        UPDATE user
+        <set>
+            <if test="user.userCode != null and user.userCode != '' " >
+                user_code = #{user.userCode},
+            </if>
+        </set>
+        <set>
+            <if test="user.userName != null and user.userName != '' " >
+                user_name = #{user.userName},
+            </if>
+        </set>
+        <set>
+            <if test="user.telephone != null and user.telephone != '' " >
+                telephone = #{user.telephone},
+            </if>
+        </set>
+        <set>
+            <if test="user.password != null and user.password != '' " >
+                password = #{user.password},
+            </if>
+        </set>
+        <set>
+            <if test="user.createTime != null and user.createTime != '' " >
+                create_time = #{user.createTime},
+            </if>
+        </set>
+        <set>
+            <if test="user.modifyTime != null and user.modifyTime != '' " >
+                modify_time = #{user.modifyTime},
+            </if>
+        </set>
+        WHERE `id` = #{user.id}
+    </update>
+
+
+    <select id="getAll" resultMap="User">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+    </select>
+
+    <select id="load" parameterType="java.util.Map" resultMap="User">
+        SELECT <include refid="Base_Column_List" />
+        FROM user
+        WHERE `id` = #{id}
+    </select>
+
+    <select id="pageList" parameterType="java.util.Map" resultMap="User">
+        SELECT <include refid="Base_Column_List" />
+        FROM user
+        LIMIT #{offset}, #{pagesize}
+    </select>
+
+    <select id="pageListCount" parameterType="java.util.Map" resultType="int">
+        SELECT count(1)
+        FROM user
+    </select>
+
+</mapper>

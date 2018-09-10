@@ -1,4 +1,4 @@
-package com.kk.maven.modules.dao;
+package com.kk.maven.modules.dao.orderTable;
 
 import com.kk.maven.modules.domain.OrderTable;
 import org.apache.ibatis.annotations.Param;
